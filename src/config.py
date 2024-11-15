@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv
-import torch
 
 load_dotenv()
 
@@ -20,3 +19,25 @@ class Config:
     PREFERENCE_WEIGHT = 0.4
     PROMPT_WEIGHT = 0.4
     PERSONALITY_WEIGHT = 0.2
+
+    # Preference Sub-weights
+    AGE_WEIGHT = 0.3
+    LOCATION_WEIGHT = 0.3
+    INTERESTS_WEIGHT = 0.4
+    
+    # Location Matching Weights
+    LOCATION_SEMANTIC_WEIGHT = 0.7
+    LOCATION_GEOGRAPHIC_WEIGHT = 0.3
+    
+    # Interest Matching Weights
+    INTERESTS_EXACT_WEIGHT = 0.7
+    INTERESTS_FUZZY_WEIGHT = 0.3
+    
+    # Personality Match Threshold
+    PERSONALITY_MATCH_THRESHOLD = 0.2  # 20% difference allowed
+    
+    # Geographic Settings
+    LOCATION_DISTANCE_SCALE = 500  # distance decay
+    
+    # Cache Settings
+    LOCATION_CACHE_SIZE = 1000

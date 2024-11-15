@@ -25,19 +25,33 @@ class GraphService:
         if user_id not in self.graph:
             return []
         
-        # Calculate personalized PageRank
         pagerank_scores = nx.pagerank(
             self.graph,
             personalization={user_id: 1.0},
             weight='weight'
         )
-        
-        # Remove the user themselves and sort by score
         del pagerank_scores[user_id]
-        matches = sorted(
-            pagerank_scores.items(),
-            key=lambda x: x[1],
-            reverse=True
-        )[:top_k]
+        
+        # Normalize scores to 0-1 range
+        if pagerank_scores:
+            max_score = max(pagerank_scores.values())
+            min_score = min(pagerank_scores.values())
+            score_range = max_score - min_score
+            
+            if score_range > 0:
+                normalized_scores = {
+                    k: (v - min_score) / score_range 
+                    for k, v in pagerank_scores.items()
+                }
+            else:
+                normalized_scores = pagerank_scores
+                
+            matches = sorted(
+                normalized_scores.items(),
+                key=lambda x: x[1],
+                reverse=True
+            )[:top_k]
+        else:
+            matches = []
         
         return matches

@@ -9,10 +9,10 @@ sys.path.append(parent_dir)
 
 from src.services.matching_service import MatchingService
 
-## logging
+# Basic logging setup
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
 
@@ -20,164 +20,281 @@ def create_user_pool() -> List[Dict]:
     """Create sample users"""
     return [
         {
-            "user_id": "tech_enthusiast_1",
+            "user_id": "tech_1",
             "preferences": {
                 "age_range": "25-35",
-                "location": "NYC",
-                "interests": ["tech", "AI", "startups"]
+                "location": "New York",
+                "interests": ["AI", "startups", "tech"]
             },
             "personality": {
                 "extroversion": 0.7,
                 "openness": 0.9,
                 "conscientiousness": 0.8
             },
-            "prompt": "Passionate about AI and building innovative solutions"
+            "prompt": "AI enthusiast looking for tech collaborations"
         },
         {
-            "user_id": "creative_dev_2",
+            "user_id": "design_1",
             "preferences": {
                 "age_range": "25-35",
-                "location": "SF",
-                "interests": ["tech", "design", "art"]
+                "location": "San Francisco",
+                "interests": ["design", "tech", "UI/UX"]
             },
             "personality": {
                 "extroversion": 0.6,
                 "openness": 0.9,
                 "conscientiousness": 0.7
             },
-            "prompt": "Creative developer interested in the intersection of art and technology"
+            "prompt": "Designer interested in tech and art"
         },
         {
-            "user_id": "data_scientist_3",
+            "user_id": "data_1",
             "preferences": {
                 "age_range": "30-40",
                 "location": "Boston",
-                "interests": ["tech", "data", "machine learning"]
+                "interests": ["data science", "ML", "AI"]
             },
             "personality": {
                 "extroversion": 0.5,
                 "openness": 0.8,
                 "conscientiousness": 0.9
             },
-            "prompt": "Data scientist looking to collaborate on ML projects"
+            "prompt": "Data scientist seeking ML projects"
         },
         {
-            "user_id": "startup_founder_4",
+            "user_id": "dev_1",
             "preferences": {
                 "age_range": "25-35",
-                "location": "NYC",
-                "interests": ["tech", "entrepreneurship", "innovation"]
+                "location": "Seattle",
+                "interests": ["backend", "cloud", "DevOps"]
+            },
+            "personality": {
+                "extroversion": 0.4,
+                "openness": 0.8,
+                "conscientiousness": 0.9
+            },
+            "prompt": "Backend developer interested in cloud architecture"
+        },
+        {
+            "user_id": "product_1",
+            "preferences": {
+                "age_range": "30-40",
+                "location": "New York",
+                "interests": ["product management", "tech", "startups"]
+            },
+            "personality": {
+                "extroversion": 0.8,
+                "openness": 0.7,
+                "conscientiousness": 0.8
+            },
+            "prompt": "Product manager looking for technical co-founder"
+        },
+        {
+            "user_id": "ml_1",
+            "preferences": {
+                "age_range": "25-35",
+                "location": "Boston",
+                "interests": ["machine learning", "NLP", "AI"]
+            },
+            "personality": {
+                "extroversion": 0.5,
+                "openness": 0.9,
+                "conscientiousness": 0.8
+            },
+            "prompt": "ML researcher focusing on natural language processing"
+        },
+        {
+            "user_id": "frontend_1",
+            "preferences": {
+                "age_range": "25-35",
+                "location": "San Francisco",
+                "interests": ["frontend", "React", "UX"]
+            },
+            "personality": {
+                "extroversion": 0.6,
+                "openness": 0.8,
+                "conscientiousness": 0.7
+            },
+            "prompt": "Frontend developer specializing in React and modern JS"
+        },
+        {
+            "user_id": "startup_1",
+            "preferences": {
+                "age_range": "30-40",
+                "location": "New York",
+                "interests": ["startups", "entrepreneurship", "AI"]
             },
             "personality": {
                 "extroversion": 0.8,
                 "openness": 0.9,
                 "conscientiousness": 0.7
             },
-            "prompt": "Startup founder seeking tech co-founder and collaborators"
+            "prompt": "Startup founder building AI solutions"
         },
         {
-            "user_id": "ux_designer_5",
+            "user_id": "mobile_1",
             "preferences": {
                 "age_range": "25-35",
-                "location": "SF",
-                "interests": ["design", "user experience", "tech"]
+                "location": "Seattle",
+                "interests": ["mobile", "iOS", "Swift"]
             },
             "personality": {
-                "extroversion": 0.7,
-                "openness": 0.8,
+                "extroversion": 0.6,
+                "openness": 0.7,
                 "conscientiousness": 0.8
             },
-            "prompt": "UX designer passionate about creating intuitive user experiences"
+            "prompt": "iOS developer building mobile applications"
+        },
+        {
+            "user_id": "security_1",
+            "preferences": {
+                "age_range": "30-40",
+                "location": "San Francisco",
+                "interests": ["security", "blockchain", "crypto"]
+            },
+            "personality": {
+                "extroversion": 0.4,
+                "openness": 0.8,
+                "conscientiousness": 0.9
+            },
+            "prompt": "Security engineer interested in blockchain"
+        },
+        {
+            "user_id": "data_2",
+            "preferences": {
+                "age_range": "25-35",
+                "location": "Chicago",
+                "interests": ["data engineering", "big data", "cloud"]
+            },
+            "personality": {
+                "extroversion": 0.5,
+                "openness": 0.8,
+                "conscientiousness": 0.9
+            },
+            "prompt": "Data engineer working with big data solutions"
+        },
+        {
+            "user_id": "research_1",
+            "preferences": {
+                "age_range": "30-40",
+                "location": "Boston",
+                "interests": ["AI research", "deep learning", "computer vision"]
+            },
+            "personality": {
+                "extroversion": 0.4,
+                "openness": 0.9,
+                "conscientiousness": 0.8
+            },
+            "prompt": "AI researcher focusing on computer vision applications"
+        },
+        {
+            "user_id": "fullstack_1",
+            "preferences": {
+                "age_range": "25-35",
+                "location": "Austin",
+                "interests": ["fullstack", "JavaScript", "Python"]
+            },
+            "personality": {
+                "extroversion": 0.6,
+                "openness": 0.8,
+                "conscientiousness": 0.7
+            },
+            "prompt": "Full stack developer proficient in multiple technologies"
+        },
+        {
+            "user_id": "gaming_1",
+            "preferences": {
+                "age_range": "25-35",
+                "location": "Seattle",
+                "interests": ["game development", "Unity", "3D graphics"]
+            },
+            "personality": {
+                "extroversion": 0.6,
+                "openness": 0.9,
+                "conscientiousness": 0.7
+            },
+            "prompt": "Game developer working with Unity and 3D graphics"
+        },
+        {
+            "user_id": "robotics_1",
+            "preferences": {
+                "age_range": "30-40",
+                "location": "Boston",
+                "interests": ["robotics", "AI", "computer vision"]
+            },
+            "personality": {
+                "extroversion": 0.5,
+                "openness": 0.9,
+                "conscientiousness": 0.8
+            },
+            "prompt": "Robotics engineer working on AI-powered systems"
         }
     ]
 
 def simulate_new_user() -> Dict:
-    """Create a new user to test matching"""
+    """Create a test user"""
     return {
-        "user_id": "new_tech_user",
+        "user_id": "new_user",
         "preferences": {
             "age_range": "25-35",
-            "location": "NYC",
-            "interests": ["tech", "AI", "startups"]
+            "location": "New York",
+            "interests": ["AI", "tech", "startups"]
         },
         "personality": {
             "extroversion": 0.7,
             "openness": 0.9,
             "conscientiousness": 0.8
         },
-        "prompt": "Looking to connect with AI enthusiasts and startup founders"
+        "prompt": "Looking for AI and tech collaborators"
     }
 
 def main():
     try:
-        # Initialize matching service
-        logger.info("\nInitializing matching service...")
+        # Initialize service
         matching_service = MatchingService()
         
-        # First, create a pool of users
-        logger.info("\nCreating user pool...")
+        # Create user pool
         user_pool = create_user_pool()
         
-        # Add users from the pool
-        logger.info("\nAdding users from pool:")
-        for user_data in user_pool:
-            logger.info(f"\nAdding user: {user_data['user_id']}")
+        # Add users to system
+        for user in user_pool:
             matching_service.signup_user(
-                user_id=user_data["user_id"],
-                preferences=user_data["preferences"],
-                personality=user_data["personality"]
+                user_id=user["user_id"],
+                preferences=user["preferences"],
+                personality=user["personality"]
             )
-            
-            logger.info(f"Processing prompt for user: {user_data['user_id']}")
             matching_service.process_user_prompt(
-                user_data["user_id"],
-                user_data["prompt"]
+                user["user_id"],
+                user["prompt"]
             )
         
-        logger.info("\n" + "="*50)
-        logger.info("User pool created successfully!")
-        logger.info(f"Total users in pool: {len(user_pool)}")
-        logger.info("="*50)
-        
-        # Now simulate adding a new user
-        logger.info("\nSimulating new user signup...")
+        # Add test user
         new_user = simulate_new_user()
-        
-        # Add the new user
-        logger.info(f"\nAdding new user: {new_user['user_id']}")
         matching_service.signup_user(
             user_id=new_user["user_id"],
             preferences=new_user["preferences"],
             personality=new_user["personality"]
         )
-        
-        # Process new user's prompt
-        logger.info(f"Processing prompt for new user: {new_user['user_id']}")
         matching_service.process_user_prompt(
             new_user["user_id"],
             new_user["prompt"]
         )
         
-        # Find matches for the new user
-        logger.info("\nFinding matches for new user...")
+        # Find matches
         matches = matching_service.find_matches(new_user["user_id"])
         
         # Print results
-        logger.info("\nMatches found for new user:")
-        logger.info("-" * 40)
+        logger.info("\nMatches for new user:")
         for user_id, score in matches:
-            logger.info(f"Match: {user_id}")
-            logger.info(f"Similarity Score: {score:.2f}")
-            # Find the matching user's details from the pool
-            matching_user = next((u for u in user_pool if u["user_id"] == user_id), None)
-            if matching_user:
-                logger.info(f"Location: {matching_user['preferences']['location']}")
-                logger.info(f"Interests: {', '.join(matching_user['preferences']['interests'])}")
-                logger.info(f"Prompt: {matching_user['prompt']}")
-            logger.info("-" * 40)
+            logger.info(f"Match: {user_id}, Score: {score:.2f}")
+            match_user = next((u for u in user_pool if u["user_id"] == user_id), None)
+            if match_user:
+                logger.info(f"Location: {match_user['preferences']['location']}")
+                logger.info(f"Interests: {', '.join(match_user['preferences']['interests'])}")
+                logger.info("---")
             
     except Exception as e:
-        logger.error(f"An error occurred: {str(e)}")
+        logger.error(f"Error: {str(e)}")
         raise
 
 if __name__ == "__main__":
